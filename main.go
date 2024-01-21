@@ -13,7 +13,7 @@ func main() {
 	router := chi.NewRouter()
 
 	// Endpoints
-	router.Get("/scrapping", handlers.ScrappingHandler)
+	router.Get("/scraping", handlers.ScrappingHandler)
 
 	// Start Server
 	log.Println("Starting server at :3000 port")
