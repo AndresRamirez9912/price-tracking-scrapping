@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"scrapper/src/models"
+	"scrapper/src/scrapers"
 	"scrapper/src/services"
 	"scrapper/src/utils"
 )
@@ -22,7 +23,8 @@ func ScrappingHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get the information product information
-	result, err := services.ScrapProduct(url)
+	scraper := scrapers.GetScraperByURL(r.URL.Host)
+	result, err := services.ScrapProduct(url, scraper)
 	if err != nil {
 		errorResponse := utils.SendScrapedErrorResponse(requestResponse, err, 0)
 		w.WriteHeader(http.StatusInternalServerError)

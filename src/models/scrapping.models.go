@@ -1,7 +1,12 @@
 package models
 
-type scraper interface {
-	ScrapProduct()
+import (
+	"github.com/PuerkitoBio/goquery"
+)
+
+type Scraper interface {
+	GetVisibleSelector() string
+	ScrapInformation(doc *goquery.Document, url string) (*ScrapedProduct, error)
 }
 
 type ScrapedProduct struct {
