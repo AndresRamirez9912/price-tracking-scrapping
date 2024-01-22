@@ -5,7 +5,6 @@ import (
 	"log"
 	"scrapper/src/models"
 	"scrapper/src/scrapers"
-	"scrapper/src/utils"
 	"strings"
 	"time"
 
@@ -36,9 +35,6 @@ func ScrapProduct(url string) (*models.ScrapedProduct, error) {
 		log.Println("Error scraping HTML element", err)
 		return nil, err
 	}
-
-	// Generate HTML
-	utils.PrintResult(htmlContent)
 
 	// Create the new goquery Document from the HTML
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlContent))
