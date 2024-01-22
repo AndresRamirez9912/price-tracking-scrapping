@@ -14,6 +14,7 @@ func main() {
 
 	// Endpoints
 	router.Get("/scraping", handlers.ScrappingHandler)
+	router.Get("/health", handlers.HealthHandler)
 
 	// Start Server
 	log.Println("Starting server at :3000 port")
