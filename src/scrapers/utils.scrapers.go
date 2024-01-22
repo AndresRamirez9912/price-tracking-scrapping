@@ -1,15 +1,22 @@
 package scrapers
 
-import "scrapper/src/models"
+import (
+	"net/http"
+	"scrapper/src/constants"
+	"scrapper/src/models"
+)
 
 func GetScraperByURL(url string) models.Scraper {
-	switch url {
-	case "www.exito.com":
+	req, _ := http.Get(url)
+	host := req.Request.URL.Host
+	switch host {
+	case constants.EXITO_HOST:
 		return ExitoScraper{}
-	case "www.jumbo.com":
+	case constants.JUMBO_HOST:
+		return JumboScraper{}
+	case constants.AMAZON_HOST:
 		return ExitoScraper{}
-	case "www.amazon.com":
-		return ExitoScraper{}
+	default:
+		return nil
 	}
-	return nil
 }

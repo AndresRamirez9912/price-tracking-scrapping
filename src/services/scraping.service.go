@@ -4,6 +4,8 @@ import (
 	"context"
 	"log"
 	"scrapper/src/models"
+	"scrapper/src/scrapers"
+	"scrapper/src/utils"
 	"strings"
 	"time"
 
@@ -11,7 +13,10 @@ import (
 	"github.com/chromedp/chromedp"
 )
 
-func ScrapProduct(url string, scraper models.Scraper) (*models.ScrapedProduct, error) {
+func ScrapProduct(url string) (*models.ScrapedProduct, error) {
+	// Create Scrapper
+	scraper := scrapers.GetScraperByURL(url)
+
 	// Create the context
 	ctxTimeOut, cancelTime := context.WithTimeout(context.Background(), 60*time.Second)
 	ctx, cancel := chromedp.NewContext(ctxTimeOut)
@@ -31,6 +36,9 @@ func ScrapProduct(url string, scraper models.Scraper) (*models.ScrapedProduct, e
 		log.Println("Error scraping HTML element", err)
 		return nil, err
 	}
+
+	// Generate HTML
+	utils.PrintResult(htmlContent)
 
 	// Create the new goquery Document from the HTML
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlContent))
