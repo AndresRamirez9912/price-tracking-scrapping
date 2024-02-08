@@ -13,11 +13,11 @@ func main() {
 	router := chi.NewRouter()
 
 	// Endpoints
-	router.Get("/scraping", handlers.ScrappingHandler)
+	router.Post("/api/scraping", handlers.ScrappingHandler)
 	router.Get("/health", handlers.HealthHandler)
 
 	// Start Server
-	log.Println("Starting server at :3000 port")
-	http.ListenAndServe(":3000", router)
+	log.Println("Starting server at :3002 port")
+	http.ListenAndServe(":3002", router)
 
 }
