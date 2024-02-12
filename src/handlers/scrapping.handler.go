@@ -3,13 +3,14 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
+	"scrapper/src/constants"
 	"scrapper/src/models"
 	"scrapper/src/services"
 	"scrapper/src/utils"
 )
 
 func ScrappingHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Content-Type", "application/json")
+	w.Header().Add(constants.CONTENT_TYPE, constants.APPICATION_JSON)
 	requestResponse := &models.ScrapProductResponse{}
 
 	// Get the product's URL

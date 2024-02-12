@@ -6,6 +6,7 @@ require (
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/chromedp/chromedp v0.9.3
 	github.com/go-chi/chi v1.5.5
+	github.com/joho/godotenv v1.5.1
 )
 
 require (

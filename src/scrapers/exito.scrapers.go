@@ -24,7 +24,7 @@ func (exito ExitoScraper) ScrapInformation(doc *goquery.Document, url string) (*
 	productImage := doc.Find(constants.EXITO_PRODUCT_IMAGE_SELECTOR).AttrOr("src", "")
 	disccount, _ := doc.Find(constants.EXITO_PRODUCT_DISCOUNT_SELECTOR).Html()
 	brand, id := utils.GetBrandIdByPLU(plu)
-	store := "Exito"
+	store := constants.EXITO_STORE
 	if err != nil {
 		log.Println("Error sacraping the information from the Product", err)
 		return nil, err

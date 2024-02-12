@@ -9,6 +9,7 @@ const (
 
 // Exito Const
 const (
+	EXITO_STORE                     = "Exito"
 	EXITO_WAIT_UNTIL                = "div[id='inpage_container']"
 	EXITO_LOWER_PRICE_SELECTOR      = "span[data-fs-price='true'][data-testid='store-price'][data-variant='selling'].price_fs-price__7Y_0s"
 	EXITO_HIGHER_PRICE_SELECTOR     = "p.priceSection_container-promotion_price-dashed__Pzc_z"
@@ -21,6 +22,7 @@ const (
 
 // Jumbo Const
 const (
+	JUMBO_STORE                     = "Jumbo"
 	JUMBO_WAIT_UNTIL                = "span.t-heading-4.v-mid"
 	JUMBO_PRODUCT_NAME_SELECTOR     = "span.vtex-store-components-3-x-productBrand"
 	JUMBO_PRICES_SELECTOR           = "div.tiendasjumboqaio-jumbo-minicart-2-x-price"

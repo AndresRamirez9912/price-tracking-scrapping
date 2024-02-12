@@ -28,7 +28,7 @@ func (jumbo JumboScraper) ScrapInformation(doc *goquery.Document, url string) (*
 	productImage := doc.Find(constants.JUMBO_PRODUCT_IMAGE_SELECTOR).AttrOr("src", "")
 	disccount, _ := doc.Find(constants.JUMBO_PRODUCT_DISCOUNT_SELECTOR).Html()
 	id, _ := doc.Find(constants.JUMBO_PRODUCT_ID_SELECTOR).Html()
-	store := "Jumbo"
+	store := constants.JUMBO_HOST
 	if err != nil {
 		log.Println("Error sacraping the information from the Product", err)
 		return nil, err
